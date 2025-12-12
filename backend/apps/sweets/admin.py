@@ -8,4 +8,3 @@ class SweetAdmin(admin.ModelAdmin):
 	search_fields = ("name", "category")
 	list_filter = ("category",)
 	ordering = ("name",)
-

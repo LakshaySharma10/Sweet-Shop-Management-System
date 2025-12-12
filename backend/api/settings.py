@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     "apps.health",
     "apps.users",
     "apps.sweets",
+    "apps.inventory",
 ]
 
 MIDDLEWARE = [

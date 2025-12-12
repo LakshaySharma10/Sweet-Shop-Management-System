@@ -100,6 +100,7 @@ run_module() {
 
 run_module 1 "users" "apps/users/tests"
 run_module 2 "sweets" "apps/sweets/tests"
+run_module 3 "inventory" "apps/inventory/tests"
 banner "Test Results"
 echo
 ok "All modules completed successfully"
