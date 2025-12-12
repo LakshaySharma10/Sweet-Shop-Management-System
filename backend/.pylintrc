@@ -1,0 +1,13 @@
+[MASTER]
+ignore-paths=.*/migrations
+load-plugins=pylint_django
+init-hook='import sys; sys.path.append(".")'
+
+disable=
+  missing-module-docstring,
+  missing-class-docstring,
+  missing-function-docstring,
+  too-many-ancestors,
+  too-many-arguments,
+  django-not-configured
+  
