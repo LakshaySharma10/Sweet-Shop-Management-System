@@ -52,7 +52,8 @@ INSTALLED_APPS = [
     "rest_framework",
     "rest_framework_simplejwt",
     "apps.health",
-    "apps.users"
+    "apps.users",
+    "apps.sweets",
 ]
 
 MIDDLEWARE = [
