@@ -52,7 +52,7 @@ INSTALLED_APPS = [
     "rest_framework",
     "rest_framework_simplejwt",
     "apps.health",
-    "apps.auth",
+    "apps.auth.apps.AuthConfig",
     "apps.users",
     "apps.sweets",
     "apps.inventory",
