@@ -29,7 +29,7 @@ class CreateUserTest(APITestCase):
 
     def test_create_user(self):
         print("\nUSER TEST 1: Creating a new user")
-        url = reverse("users-register")
+        url = reverse("auth-register")
         data = {
             "username": "test1",
             "first_name": "Test",
@@ -58,7 +58,7 @@ class CreateUserTest(APITestCase):
 
     def test_login(self):
         print("\nUSER TEST 3: Logging in")
-        url = reverse("token_obtain_pair")
+        url = reverse("auth-login")
         data = {
             "username": "test",
             "password": "test"
