@@ -38,7 +38,10 @@ ALLOWED_HOSTS = (
     else ["*"]  # Allow all hosts in production (or specify Railway domain)
 )
 
-CSRF_TRUSTED_ORIGINS = ["https://*.railway.app", "https://*.onrailway.app"]
+CSRF_TRUSTED_ORIGINS = [
+    "https://*.onrender.com",
+]
+
 
 
 # Application definition
