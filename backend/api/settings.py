@@ -94,12 +94,13 @@ TEMPLATES = [
 WSGI_APPLICATION = "api.wsgi.application"
 
 # Postgres db initialization
-DB_SCHEMA = {
-    "development": "dev",
-    "production": "prod",
-    "qa": "qa",
-    "test": "public",
-}[env("ENVIRONMENT")]
+# DB_SCHEMA = {
+#     "development": "dev",
+#     "production": "prod",
+#     "qa": "qa",
+#     "test": "public",
+# }[env("ENVIRONMENT")]
+DB_SCHEMA = env("DB_SCHEMA", default="public")
 
 if env("DATABASE_URL", default=None):
     DATABASES = {"default": env.db("DATABASE_URL")}
