@@ -22,7 +22,7 @@ media/
 
 #  Dati locali o test
 *.csv
-*.txt
+
 
 # Docker
 docker/.DS_Store
