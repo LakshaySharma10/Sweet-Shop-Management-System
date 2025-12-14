@@ -18,7 +18,9 @@ def register(request):
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
+from apps.auth.serializers import CustomTokenObtainPairSerializer
+
 class LoginView(TokenObtainPairView):
     """User login endpoint - extends TokenObtainPairView"""
-    pass
+    serializer_class = CustomTokenObtainPairSerializer
 

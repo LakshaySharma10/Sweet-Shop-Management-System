@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useAuth } from '../context/AuthContext';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
+import api from '../utils/axios.js';
 
 const Login = () => {
     const [formData, setFormData] = useState({ username: '', password: '' });
@@ -17,16 +18,16 @@ const Login = () => {
         e.preventDefault();
         setError('');
         try {
-            const response = await axios.post('/api/auth/login/', formData);
-            login(response.data.user);
+            const response = await api.post('/auth/login/', formData);
+            login(response.data.user, response.data.access);
             navigate('/');
         } catch (err) {
-            setError(err.response?.data?.message || 'Login failed');
+            setError(err.response?.data?.message || err.response?.data?.detail || 'Login failed');
         }
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-slate-300 text-slate-900">
+        <div className="min-h-screen flex items-center justify-center bg-zinc-950 text-slate-900">
             <div className="max-w-md w-full bg-white rounded-xl shadow-lg p-8 transform transition-all">
                 <h1 className="text-3xl font-light text-center mb-8">Login</h1>
                 {error && <div className="bg-red-50 text-red-500 p-3 rounded-lg mb-4 text-sm text-center">{error}</div>}
@@ -59,12 +60,12 @@ const Login = () => {
                     </div>
                     <button
                         type="submit"
-                        className="w-full bg-black text-white p-3 rounded-lg font-medium hover:bg-slate-800 transition-colors mt-2"
+                        className="w-full cursor-pointer bg-black text-white p-3 border rounded-lg font-medium hover:bg-white hover:text-black hover:border-black transition-colors mt-2"
                     >
                         Sign In
                     </button>
                     <p className="text-center text-sm text-slate-500 mt-4">
-                        Don't have an account? <a href="/register" className="text-black font-medium hover:underline">Register</a>
+                        Don't have an account? <Link to="/register" className="text-black font-medium hover:underline">Register</Link>
                     </p>
                 </form>
             </div>
