@@ -7,6 +7,10 @@ set -e
 echo "Applying database migrations..."
 python manage.py migrate
 
+# Create superuser
+echo "Creating superuser..."
+python manage.py createsuperuser --noinput || true
+
 # Start server
 echo "Starting server..."
 exec "$@"
